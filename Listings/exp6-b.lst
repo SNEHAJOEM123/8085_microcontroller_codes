@@ -1,0 +1,74 @@
+A51 MACRO ASSEMBLER  EXP6_B                                                               04/05/2023 08:23:52 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN .\Objects\exp6-b.obj
+ASSEMBLER INVOKED BY: D:\keil\C51\BIN\A51.EXE exp6-b.a51 SET(SMALL) DEBUG PRINT(.\Listings\exp6-b.lst) OBJECT(.\Objects\
+                      exp6-b.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     ORG 000H
+0000 020040            2     LJMP START
+                       3     
+000B                   4     ORG 000BH
+000B 020068            5     LJMP TOISR
+                       6     
+0040                   7     ORG 0040H
+0040 7580FF            8     START:MOV P0,#0FFH
+0043 7590FF            9     MOV P1,#0FFH
+0046 7A1A             10     MOV R2,#26
+0048 75A882           11     MOV IE,#82H
+004B 758901           12     MOV TMOD,#01H
+004E 758C00           13     MOV TH0,#00H
+0051 758A00           14     MOV TL0,#00H
+0054 D2A4             15     SETB P2.4
+0056 D28C             16     SETB TR0
+0058 E580             17     BACK:MOV A,P0
+005A 8590F0           18     MOV B,P1
+005D B5F004           19     CJNE A,B,LIT
+0060 C2A0             20     CLR P2.0
+0062 80F4             21     SJMP BACK
+0064 D2A0             22     LIT:SETB P2.0
+0066 80F0             23     SJMP BACK
+0068 DA0F             24     TOISR:DJNZ R2,LABEL
+006A B2A4             25     CPL P2.4
+006C C28C             26     CLR TR0
+006E 7A1A             27     MOV R2,#26
+0070 758C00           28     MOV TH0,#00H
+0073 758A00           29     MOV TL0,#00H
+0076 D28C             30     SETB TR0
+0078 32               31     RETI
+0079 C28D             32     LABEL:CLR TF0
+007B 32               33     RETI
+                      34     END
+                                     
+A51 MACRO ASSEMBLER  EXP6_B                                                               04/05/2023 08:23:52 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+B. . . . . . . . .  D ADDR   00F0H   A   
+BACK . . . . . . .  C ADDR   0058H   A   
+IE . . . . . . . .  D ADDR   00A8H   A   
+LABEL. . . . . . .  C ADDR   0079H   A   
+LIT. . . . . . . .  C ADDR   0064H   A   
+P0 . . . . . . . .  D ADDR   0080H   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+P2 . . . . . . . .  D ADDR   00A0H   A   
+START. . . . . . .  C ADDR   0040H   A   
+TF0. . . . . . . .  B ADDR   0088H.5 A   
+TH0. . . . . . . .  D ADDR   008CH   A   
+TL0. . . . . . . .  D ADDR   008AH   A   
+TMOD . . . . . . .  D ADDR   0089H   A   
+TOISR. . . . . . .  C ADDR   0068H   A   
+TR0. . . . . . . .  B ADDR   0088H.4 A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

@@ -1,0 +1,3 @@
+".\Objects\gsm.obj" 
+TO ".\Objects\mini project" 
+PRINT(".\Listings\mini project.m51") RAMSIZE(256) 

@@ -1,0 +1,47 @@
+A51 MACRO ASSEMBLER  EXP6_A                                                               04/05/2023 08:15:31 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN .\Objects\exp6-a.obj
+ASSEMBLER INVOKED BY: D:\keil\C51\BIN\A51.EXE exp6-a.a51 SET(SMALL) DEBUG PRINT(.\Listings\exp6-a.lst) OBJECT(.\Objects\
+                      exp6-a.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     ORG 000H
+0000 7840              2     START:MOV R0,#0040H
+0002 7950              3     MOV R1,#0050H
+0004 7B0F              4     MOV R3,#15
+0006 758360            5     MOV DPH,#0060H
+0009 E4                6     LOOP:CLR A
+000A E6                7     MOV A,@R0
+000B 27                8     ADD A,@R1
+000C 88F0              9     MOV B,R0
+000E A883             10     MOV R0,DPH
+0010 F6               11     MOV @R0,A
+0011 A8F0             12     MOV R0,B
+0013 08               13     INC R0
+0014 09               14     INC R1
+0015 0583             15     INC DPH
+0017 DBF0             16     DJNZ R3,LOOP
+0019 80E5             17     SJMP START
+                      18     END
+                             
+A51 MACRO ASSEMBLER  EXP6_A                                                               04/05/2023 08:15:31 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+B. . . . . . . . .  D ADDR   00F0H   A   
+DPH. . . . . . . .  D ADDR   0083H   A   
+LOOP . . . . . . .  C ADDR   0009H   A   
+START. . . . . . .  C ADDR   0000H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

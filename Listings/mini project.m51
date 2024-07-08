@@ -1,0 +1,177 @@
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                    04/02/2023  15:34:10  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22.4.0, INVOKED BY:
+D:\KEIL\C51\BIN\BL51.EXE .\Objects\gsm.obj TO .\Objects\mini project PRINT (.\Listings\mini project.m51) RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\gsm.obj (GSM)
+  D:\KEIL\C51\LIB\C51S.LIB (?C_STARTUP)
+  D:\KEIL\C51\LIB\C51S.LIB (PRINTF)
+  D:\KEIL\C51\LIB\C51S.LIB (?C?CLDPTR)
+  D:\KEIL\C51\LIB\C51S.LIB (?C?CLDOPTR)
+  D:\KEIL\C51\LIB\C51S.LIB (?C?CSTPTR)
+  D:\KEIL\C51\LIB\C51S.LIB (?C?PLDIIDATA)
+  D:\KEIL\C51\LIB\C51S.LIB (?C?CCASE)
+  D:\KEIL\C51\LIB\C51S.LIB (PUTCHAR)
+
+
+LINK MAP OF MODULE:  .\Objects\mini project (GSM)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0014H     UNIT         _DATA_GROUP_
+                    001CH     0004H                  *** GAP ***
+            BIT     0020H.0   0001H.1   UNIT         _BIT_GROUP_
+                    0021H.1   0000H.7                *** GAP ***
+            IDATA   0022H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     07FDH                  *** GAP ***
+            CODE    0800H     035CH     UNIT         ?PR?PRINTF?PRINTF
+            CODE    0B5CH     008EH     UNIT         ?C?LIB_CODE
+            CODE    0BEAH     0087H     UNIT         ?PR?MAIN?GSM
+            CODE    0C71H     003BH     UNIT         ?CO?GSM
+            CODE    0CACH     0027H     UNIT         ?PR?PUTCHAR?PUTCHAR
+            CODE    0CD3H     001DH     UNIT         ?PR?DELAY?GSM
+            CODE    0CF0H     000CH     UNIT         ?C_C51STARTUP
+
+
+
+OVERLAY MAP OF MODULE:   .\Objects\mini project (GSM)
+
+
+SEGMENT                           BIT_GROUP          DATA_GROUP 
+  +--> CALLED SEGMENT          START    LENGTH     START    LENGTH
+------------------------------------------------------------------
+?C_C51STARTUP                  -----    -----      -----    -----
+  +--> ?PR?MAIN?GSM
+
+?PR?MAIN?GSM                   -----    -----      -----    -----
+  +--> ?CO?GSM
+  +--> ?PR?PRINTF?PRINTF
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  04/02/2023  15:34:10  PAGE 2
+
+
+  +--> ?PR?DELAY?GSM
+
+?PR?PRINTF?PRINTF              0020H.0  0001H.1    0008H    0014H
+  +--> ?PR?PUTCHAR?PUTCHAR
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\mini project (GSM)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        GSM
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0090H         PUBLIC        P1
+  C:0CD3H         PUBLIC        delay
+  B:0098H.1       PUBLIC        TI
+  C:0BEAH         PUBLIC        main
+  D:0099H         PUBLIC        SBUF
+  D:0098H         PUBLIC        SCON
+  D:0089H         PUBLIC        TMOD
+  D:008DH         PUBLIC        TH1
+  B:0088H.6       PUBLIC        TR1
+  B:0090H.0       PUBLIC        sw
+  -------         PROC          DELAY
+  -------         DO            
+  D:0004H         SYMBOL        i
+  D:0006H         SYMBOL        j
+  -------         ENDDO         
+  C:0CD3H         LINE#         5
+  C:0CD3H         LINE#         6
+  C:0CD3H         LINE#         8
+  C:0CD6H         LINE#         9
+  C:0CEFH         LINE#         10
+  -------         ENDPROC       DELAY
+  -------         PROC          MAIN
+  C:0BEAH         LINE#         12
+  C:0BEAH         LINE#         13
+  C:0BEAH         LINE#         14
+  C:0BECH         LINE#         15
+  C:0BF2H         LINE#         16
+  C:0BF2H         LINE#         17
+  C:0BF5H         LINE#         18
+  C:0BF8H         LINE#         19
+  C:0BFBH         LINE#         20
+  C:0BFDH         LINE#         21
+  C:0BFFH         LINE#         22
+  C:0C08H         LINE#         23
+  C:0C11H         LINE#         24
+  C:0C1AH         LINE#         25
+  C:0C1DH         LINE#         26
+  C:0C26H         LINE#         27
+  C:0C2FH         LINE#         28
+  C:0C38H         LINE#         29
+  C:0C3BH         LINE#         30
+  C:0C44H         LINE#         31
+  C:0C4DH         LINE#         32
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  04/02/2023  15:34:10  PAGE 3
+
+
+  C:0C56H         LINE#         33
+  C:0C59H         LINE#         34
+  C:0C62H         LINE#         35
+  C:0C65H         LINE#         36
+  C:0C68H         LINE#         37
+  C:0C6BH         LINE#         38
+  C:0C6DH         LINE#         39
+  C:0C70H         LINE#         40
+  C:0C70H         LINE#         41
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        GSM
+
+  -------         MODULE        PRINTF
+  D:0008H         PUBLIC        ?_PRINTF517?BYTE
+  D:0008H         PUBLIC        ?_PRINTF?BYTE
+  D:0008H         PUBLIC        ?_SPRINTF517?BYTE
+  D:0008H         PUBLIC        ?_SPRINTF?BYTE
+  C:0862H         PUBLIC        _PRINTF
+  C:0862H         PUBLIC        _PRINTF517
+  C:085CH         PUBLIC        _SPRINTF
+  C:085CH         PUBLIC        _SPRINTF517
+  -------         ENDMOD        PRINTF
+
+  -------         MODULE        ?C?CLDPTR
+  C:0B5CH         PUBLIC        ?C?CLDPTR
+  -------         ENDMOD        ?C?CLDPTR
+
+  -------         MODULE        ?C?CLDOPTR
+  C:0B75H         PUBLIC        ?C?CLDOPTR
+  -------         ENDMOD        ?C?CLDOPTR
+
+  -------         MODULE        ?C?CSTPTR
+  C:0BA2H         PUBLIC        ?C?CSTPTR
+  -------         ENDMOD        ?C?CSTPTR
+
+  -------         MODULE        ?C?PLDIIDATA
+  C:0BB4H         PUBLIC        ?C?PLDIIDATA
+  -------         ENDMOD        ?C?PLDIIDATA
+
+  -------         MODULE        ?C?CCASE
+  C:0BC4H         PUBLIC        ?C?CCASE
+  -------         ENDMOD        ?C?CCASE
+
+  -------         MODULE        PUTCHAR
+  C:0CACH         PUBLIC        _PUTCHAR
+  -------         ENDMOD        PUTCHAR
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 00DFH BYTE (10%) *
+******************************************************************************
+
+Program Size: data=30.1 xdata=0 code=1279
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

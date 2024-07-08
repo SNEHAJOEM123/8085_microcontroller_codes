@@ -1,0 +1,65 @@
+C51 COMPILER V9.60.7.0   GSM                                                               04/02/2023 14:24:59 PAGE 1   
+
+
+C51 COMPILER V9.60.7.0, COMPILATION OF MODULE GSM
+OBJECT MODULE PLACED IN .\Objects\gsm.obj
+COMPILER INVOKED BY: D:\keil\C51\BIN\C51.EXE gsm.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\gsm.lst)
+                    - TABS(2) OBJECT(.\Objects\gsm.obj)
+
+line level    source
+
+   1          #include<reg51.h>
+   2          #include<stdio.h>
+   3          sbit sw=P1^0;
+   4          // delay subroutine starts here
+   5          void delay()
+   6          {
+   7   1      int i,j;
+   8   1      for(j=0;j<40;j++)
+   9   1      for(i=0;i<15000;i++);
+  10   1      }
+  11          // main function starts here
+  12          void main()
+  13          {
+  14   1      sw=1; // initialize P1^0 as an i/p pin
+  15   1      if(sw==0) // if switch is pressed then send the SMS
+  16   1      {
+  17   2       TMOD=0X20; // Timer 1 in mode2
+  18   2       TH1=0XFD; // TH1 is loaded for 9600bps baud rate generation
+  19   2       SCON=0X50; // Serial communication in mode 1 with receive enable
+  20   2       TR1=1; // Start Timer 
+  21   2       TI=1; // Since printf( ) is used so TI flag has to be raised
+  22   2       printf("at"); // initiate the GSM modem
+  23   2       printf("\n");
+  24   2       printf("\r");
+  25   2       delay();
+  26   2       printf("at+cmgf=1"); // initiate GSM modem in text mode
+  27   2       printf("\n");
+  28   2       printf("\r");
+  29   2       delay();
+  30   2       printf("at+cmgs=\"+918921109079\""); // send sms to the specified mobile number
+  31   2       printf("\n");
+  32   2       printf("\r");
+  33   2       delay();
+  34   2       printf("DANGER!!!!!!!!!!!"); // body of the SMS
+  35   2       delay();
+  36   2       SBUF=0x1A; // ASCII code for ctrl+z
+  37   2       while(TI==0); // wait for the transmission to complete
+  38   2       TI=0; // clear the transmit interrupt flag
+  39   2       delay();
+  40   2      }
+  41   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    164    ----
+   CONSTANT SIZE    =     59    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

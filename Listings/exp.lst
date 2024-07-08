@@ -1,0 +1,34 @@
+A51 MACRO ASSEMBLER  EXP                                                                  04/05/2023 08:44:24 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN .\Objects\exp.obj
+ASSEMBLER INVOKED BY: D:\keil\C51\BIN\A51.EXE exp.a51 SET(SMALL) DEBUG PRINT(.\Listings\exp.lst) OBJECT(.\Objects\exp.ob
+                      j) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     ORG 000H
+0000 7831              2     MOV R0,#31H
+0002 7940              3     MOV R1,#40H
+0004 7B0A              4     MOV R3,#10
+0006 E6                5     LOOP:MOV A,@R0
+0007 27                6     ADD A,@R1
+0008 08                7     INC R0
+0009 DBFB              8     DJNZ R3,LOOP
+                       9     END
+A51 MACRO ASSEMBLER  EXP                                                                  04/05/2023 08:44:24 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+LOOP . . . . . . .  C ADDR   0006H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)
